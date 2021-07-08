@@ -1,26 +1,35 @@
-package restfullwebservice02;
+package restfullwebservice03;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-public class SF02StudentBean {
-	
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="students")
+public class SF03StudentBean {
+	@Id
 	private Long id;
 	private String name;
 	private String email;
 	private LocalDate dob;
+	@Transient
 	private int age;
 	private String errMsg="Error Not Found...";
 	
-	public SF02StudentBean(Long id, String name, String email, LocalDate dob) {
+	public SF03StudentBean(Long id, String name, String email, LocalDate dob) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.dob = dob;
+		this.age=getAge();
 		this.errMsg= errMsg;
 	}
 	
-	public SF02StudentBean () {
+	public SF03StudentBean () {
 		this.errMsg = "There is no student with this id";
 	}
 	
