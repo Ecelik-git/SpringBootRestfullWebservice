@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name="students")
+@Table(name = "students")
 public class SF03StudentBean {
 	@Id
 	private Long id;
@@ -18,21 +18,20 @@ public class SF03StudentBean {
 	private LocalDate dob;
 	@Transient
 	private int age;
-	private String errMsg="Error Not Found...";
-	
+	private String errMsg = "Error Not Found...";
+
 	public SF03StudentBean(Long id, String name, String email, LocalDate dob) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.dob = dob;
-		this.age=getAge();
-		this.errMsg= errMsg;
+		this.age = getAge();
+		this.errMsg = errMsg;
 	}
-	
-	public SF03StudentBean () {
+
+	public SF03StudentBean() {
 		this.errMsg = "There is no student with this id";
 	}
-	
 
 	public Long getId() {
 		return id;
@@ -67,7 +66,7 @@ public class SF03StudentBean {
 	}
 
 	public int getAge() {
-		if(this.dob==null) {
+		if (this.dob == null) {
 			return 0;
 		}
 		return Period.between(this.dob, LocalDate.now()).getYears();
@@ -89,9 +88,5 @@ public class SF03StudentBean {
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", email=" + email + ", dob=" + dob + ", age=" + age;
 	}
-	
-	
-	
-	
 
 }

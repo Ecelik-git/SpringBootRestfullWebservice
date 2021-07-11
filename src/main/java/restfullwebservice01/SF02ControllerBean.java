@@ -1,11 +1,11 @@
 package restfullwebservice01;
 
 public class SF02ControllerBean {
-	
+
 	private String msg;
 
 	public SF02ControllerBean(String msg) {
-		this.msg=msg;
+		this.msg = msg;
 	}
 
 	public String getMsg() {
@@ -20,7 +20,5 @@ public class SF02ControllerBean {
 	public String toString() {
 		return "SF02ControllerBean [msg=" + msg + "]";
 	}
-	
-	
 
 }

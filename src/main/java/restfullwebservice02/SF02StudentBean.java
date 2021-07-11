@@ -4,26 +4,25 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class SF02StudentBean {
-	
+
 	private Long id;
 	private String name;
 	private String email;
 	private LocalDate dob;
 	private int age;
-	private String errMsg="Error Not Found...";
-	
+	private String errMsg = "Error Not Found...";
+
 	public SF02StudentBean(Long id, String name, String email, LocalDate dob) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.dob = dob;
-		this.errMsg= errMsg;
+		this.errMsg = errMsg;
 	}
-	
-	public SF02StudentBean () {
+
+	public SF02StudentBean() {
 		this.errMsg = "There is no student with this id";
 	}
-	
 
 	public Long getId() {
 		return id;
@@ -58,7 +57,7 @@ public class SF02StudentBean {
 	}
 
 	public int getAge() {
-		if(this.dob==null) {
+		if (this.dob == null) {
 			return 0;
 		}
 		return Period.between(this.dob, LocalDate.now()).getYears();
@@ -80,9 +79,5 @@ public class SF02StudentBean {
 	public String toString() {
 		return "id=" + id + ", name=" + name + ", email=" + email + ", dob=" + dob + ", age=" + age;
 	}
-	
-	
-	
-	
 
 }

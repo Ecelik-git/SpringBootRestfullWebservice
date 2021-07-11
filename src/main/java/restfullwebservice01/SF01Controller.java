@@ -13,48 +13,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SF01Controller {
 
-	//1.WAY
+	// 1.WAY
 //	@RequestMapping(method=RequestMethod.GET, path="/getRequest")
 //	public String getMethod() {
 //		return "Get request is taken...";
 //	}
-	
-	//2.WAY
-	@GetMapping(path="/getRequest")
+
+	// 2.WAY
+	@GetMapping(path = "/getRequest")
 	public String getMethod1() {
 		return "Get request is taken...";
 	}
-	
-	@GetMapping(path="/getBean")
+
+	@GetMapping(path = "/getBean")
 	public SF02ControllerBean getMethod2() {
 		return new SF02ControllerBean("this is get request to return message object");
 	}
-	
-	@GetMapping(path="/getParameter/{name}")
+
+	@GetMapping(path = "/getParameter/{name}")
 	public SF02ControllerBean getMethod3(@PathVariable String name) {
 		return new SF02ControllerBean(String.format("Hey %s this is your page", name));
 	}
-	
-	@GetMapping(path="getList/{name}")
+
+	@GetMapping(path = "getList/{name}")
 	public List<SF02ControllerBean> getMethod4(@PathVariable String name) {
 		return List.of(new SF02ControllerBean(String.format("Hi %s", name)),
-			       new SF02ControllerBean(String.format("How are you %s", name)),
-			       new SF02ControllerBean(String.format("%s do you want to drink coffee", name)));	
+				new SF02ControllerBean(String.format("How are you %s", name)),
+				new SF02ControllerBean(String.format("%s do you want to drink coffee", name)));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
